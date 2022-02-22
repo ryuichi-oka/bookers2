@@ -20,37 +20,37 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id=navbarNavDropdown>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
               <li>
                 <%= link_to(user_path(current_user.id), class: 'nav-link text-light') do %>
-                  <strong><i class="fas fa-house-chimney"></i><span>Home</span></strong>
+                  <strong><i class="fas fa-home"></i><span> Home</span></strong>
                 <% end %>
               </li>
               <li>
                 <%= link_to "/users", class: 'nav-link text-light' do %>
-                  <strong><i class="fas fa-users"></i><span>Users</span></strong>
+                  <strong><i class="fas fa-users"></i><span> Users</span></strong>
                 <% end %>
               </li>
               <li>
                 <%= link_to "/books", class: 'nav-link text-light' do %>
-                  <strong><i class="fas fa-book-open"></i><span>Books</span></strong>
+                  <strong><i class="fas fa-book-open"></i><span> Books</span></strong>
                 <% end %>
               </li>
               <li>
                 <%= link_to(destroy_user_session_path, method: :delete, class: 'nav-link text-light') do %>
-                  <strong><i class="fas fa-sign-out-alt"></i><span>Log out</span></strong>
+                  <strong><i class="fas fa-sign-out-alt"></i><span> Log out</span></strong>
                 <% end %>
               </li>
               <% else %>
               <li>
                 <%= link_to(root_path, class: 'nav-link text-light') do %>
-                  <strong><i class="fas fa-house-chimney"></i><span>Home</span></strong>
+                  <strong><i class="fas fa-home"></i><span>Home</span></strong>
                 <% end %>
               </li>
               <li>
-                <%= link_to "/homes/about", class: 'nav-link text-light' do %>
+                <%= link_to '/home/about', class: 'nav-link text-light' do %>
                   <strong><i class="fas fa-link"></i><span>About</span></strong>
                 <% end %>
               </li>
@@ -71,6 +71,7 @@
       </nav>
     </header>
     <main>
+      <p id="notice"><%= flash[:notice] %></p>
     <%= yield %>
     </main>
     <footer>
